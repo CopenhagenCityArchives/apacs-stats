@@ -1,0 +1,29 @@
+os: linux
+dist: xenial
+
+language: node_js
+
+node_js:
+- '11.9'
+
+script:
+  - wget -N https://github.com/lucidworks/banana/archive/v1.6.26.zip 2>&1 | grep "not retrieving" 2>&1 > /dev/null
+  - unzip v1.6.26.zip -q -d ./stats 
+  - mkdir -p /tmp/banana
+  - cp -fr ./stats/banana-1.6.26/src/. /tmp/banana
+  - rm -fr /tmp/banana/src/app/dashboards/
+  - cp default.json /tmp/banana/src/app/dashboards/
+  - rm -rf ./stats/banana-1.6.26/src
+  - rm v1.6.26.zip
+
+deploy:
+  - provider: s3
+    access_key_id: ${AWS_ACCESS_KEY_ID}
+    secret_access_key: ${AWS_SECRET_ACCESS_KEY_ID}
+    bucket: static.kbharkiv.dk
+    cache_control: 'no-cache'
+    local_dir: /tmp/banana
+    upload_dir: ${DEPLOY_DIR}
+    acl: public_read
+    region: eu-west-1
+    skip_cleanup: true
