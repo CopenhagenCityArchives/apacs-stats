@@ -7,8 +7,8 @@ node_js:
 - '11.9'
 
 script:
-  - wget -N https://github.com/lucidworks/banana/archive/v1.6.26.zip 2>&1 | grep "not retrieving" 2>&1 > /dev/null
-  - unzip v1.6.26.zip -q -d ./stats 
+  - wget -N https://github.com/lucidworks/banana/archive/v1.6.26.zip
+  - unzip -q v1.6.26.zip -d ./stats 
   - mkdir -p /tmp/banana
   - cp -fr ./stats/banana-1.6.26/src/. /tmp/banana
   - rm -fr /tmp/banana/src/app/dashboards/
