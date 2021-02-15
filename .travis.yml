@@ -12,7 +12,7 @@ script:
   - mkdir -p /tmp/banana
   - cp -fr ./stats/banana-1.6.26/src/. /tmp/banana
   - rm -fr /tmp/banana/src/app/dashboards/
-  - cp default.json /tmp/banana/src/app/dashboards/
+  - cp default.json /tmp/banana/src/app/dashboards/default.json
   - rm -rf ./stats/banana-1.6.26/src
   - rm v1.6.26.zip
 
@@ -26,4 +26,4 @@ deploy:
     upload_dir: ${DEPLOY_DIR}
     acl: public_read
     region: eu-west-1
-    skip_cleanup: true
+    cleanup: false
