@@ -26,6 +26,7 @@ deploy:
     upload_dir: ${DEPLOY_DIR}
     acl: public_read
     region: eu-west-1
+    overwrite: true
     cleanup: false
     on:
       all_branches: true
