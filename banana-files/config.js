@@ -55,7 +55,7 @@ function (Settings) {
     // Also, you need to uncomment this same line in src/app/components/settings.js to enable banana_server config.
     // Reference: https://github.com/lucidworks/banana/tree/fusion/resources/enable-cors
     //
-    banana_server: "https://stats.kbharkiv.dk/solr/",
+    banana_server: "https://aws.kbhkilder.dk/solr/",
 
     /**
      * Lucidworks Fusion settings
