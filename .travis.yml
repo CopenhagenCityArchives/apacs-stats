@@ -13,6 +13,9 @@ script:
   - cp -fr ./stats/banana-1.6.26/src/. /tmp/banana
   - cp -f ./banana-files/config.js /tmp/banana/config.js
   - cp -f ./banana-files/settings.js /tmp/banana/app/components/settings.js
+  - rm -fr /tmp/banana/app/dashboards/
+  - mkdir -p /tmp/banana/app/dashboards
+  - cp -r ./dashboards /tmp/banana/app/
   - rm -rf ./stats/banana-1.6.26/src
   - rm v1.6.26.zip
 
